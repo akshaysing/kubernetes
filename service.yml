@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: test
+  name: test
+spec:
+  clusterIP: 10.108.94.143
+  clusterIPs:
+  - 10.108.94.143
+  externalTrafficPolicy: Cluster
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - nodePort: 31327
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: test
+  sessionAffinity: None
+  type: NodePort
+status:
+  loadBalancer: {}
